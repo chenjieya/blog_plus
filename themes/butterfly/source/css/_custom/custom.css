@@ -19,11 +19,11 @@
   --scrollbar-color: var(--theme-color) !important;
   --border-style: 1px solid rgba(169, 169, 169, 0.7);
   /* 代码框行数背景色 */
-  --hlnumber-bg: #f6f8fa;
+  /* --hlnumber-bg: #f6f8fa; */
   /* 代码框顶部背景色 */
-  --hltools-bg: #e6ebf1;
+  /* --hltools-bg: #e6ebf1; */
   /* 代码框背景色 */
-  --hl-bg: #f6f8fa;
+  /* --hl-bg: #f6f8fa; */
 }
 
 /* 滚动条样式 */
