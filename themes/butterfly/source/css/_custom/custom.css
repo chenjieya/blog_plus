@@ -520,6 +520,10 @@ div#archive {
   overflow: visible !important;
   max-height: none !important;
 }
+.tk-content p {
+  margin: 0;
+}
+
 /* 修复图片出框 */
 .tk-content img {
   max-width: 100% !important;

@@ -338,7 +338,7 @@ facebook_comments:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId:
+  envId: https://twikoo-sandy-mu.vercel.app/
   region:
   visitor: false
   option:
