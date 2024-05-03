@@ -18,7 +18,7 @@ abbrlink:
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://alvis.org.cn/
+url: https://alvis.org.cn/
 permalink: posts/:abbrlink.html
 permalink_defaults:
 pretty_urls:
@@ -277,8 +277,8 @@ magnet:
     - name: 数据库
       display_name: 小Fの数据库笔记
       icon: 🍨
-    - name: 演示
-      display_name: 小Fの案例演示笔记
+    - name: Vue
+      display_name: 小陈のVue笔记
       icon: 🍥
   color_setting:
     text_color: black # 文字默认颜色
