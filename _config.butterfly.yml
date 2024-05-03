@@ -156,7 +156,16 @@ cover:
   position: both
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
-    - https://source.fomal.cc/img/default_cover_14.webp
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/1.png
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/2.png
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/3.png
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/4.png
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/5.png
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/6.png
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/7.png
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/8.png
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/9.png
+    - https://picgo-1300696809.cos.ap-beijing.myqcloud.com/blog/article_bg/10.png
     # ...
 
 # A simple 404 page
