@@ -78,6 +78,8 @@ nodemon --exec ts-node ./src/index.ts
 
 ### 3.2 配置文件
 
+> 快速生成配置文件`tsc --init`
+
 1. `include`指定需要编译的文件
 指定需要编译的ts的文件或者目录，默认是匹配我们根目录下面的`**/*`, `**/`代表的是匹配递归到任意子目录，`*`代表的是匹配零个或多个字符（不包括目录分隔符）。我们一般会写成下面这个样子：
 ```json
@@ -119,6 +121,16 @@ nodemon --exec ts-node ./src/index.ts
 }
 ```
 
+5. `strict`严格模式，开启严格的类型检查
+开启严格类型检查之后，一下的配置会跟随`strict:true`开启
+- `alwaysStrict`-在代码中注入`use strict`，ESM模块化默认就是严格模式，commonJs模块化才会生成
+- `nolmplictAny`-不允许隐式的`any`
+- `nolmplicitThis`-不允许`this`有隐式的`any`类型
+- `strictBindCallApply`-严格的`bind\call\apply`检查
+- `strictFunctionTypes`-不允许函数参数双向协变
+- `strictNullChecks`-不允许把`null、undefined`赋值给其他类型的变量
+- `strictPropertyInitalization`-类的实例属性必须初始化
+- `useUnkownInCatchVariables`-默认`catch`子句变量为`unknow`，而不是`any`
 
 
 {% note warning modern %}
@@ -126,8 +138,139 @@ nodemon --exec ts-node ./src/index.ts
 {% endnote %}
 
 
+## 3.3 TS常见类型
+
+### 3.4 any类型
+
+any可以被赋予任何类型的值，直接给变量赋值`null`或`undefined`,默认类型是**any**。
+
+### 3.5 字面量类型
+
+```ts
+const v1 = "hello"
+```
+
 {% note warning modern %}
 1. 如果进行类型推导，直接给变量赋值`null`或`undefined`,默认类型是**any**。
 2. 因为`const`声明的变量不能更改，所以默认的类型就是常量字面量类型。
 {% endnote %}
+
+
+### 3.6 联合类型
+
+```ts
+// 着三种类型都可以
+let v2: string|number|boolean
+
+// 只能是男或者女，字面量类型+联合类型
+let v3: "男"｜"女"
+```
+
+### 3.7 数组类型
+
+数组类型可以有两种表示方式：`类型[]、Array<类型>`
+
+```ts
+const arr1:string[] = ['h', 'e', 'l', 'l', 'o']
+const arr2:Array<string> = ['h', 'e', 'l', 'l', 'o']
+
+// 如果不写类型，同时赋值的时候也不写元素，则默认推断出是`any[]`类型
+// 如果将配置文件中的`nolmplictAny`配置改为false,他会推断成`never[]`
+const arr3 = []
+
+// 数组联合类型
+const arr4:(string|number)[] = []
+const arr5:Array<string|number> = []
+```
+
+### 3.8 元组类型
+
+将数组中的每一项，都规定类型
+```ts
+const tuple1: [string, number] = ["a", 1]
+const position: [number, number] = [39.5436, 117.231]
+```
+
+
+### 3.9 函数相关
+
+#### 3.9.1 函数参数和返回值
+
+如果不需要返回值，则填写`void`
+
+```ts
+function add(a: number, b: number): string {
+	return a+b+''
+}
+
+add(1,2);
+```
+
+#### 3.9.2 可选参数
+
+可以在某些参数后面加上`?`，表示参数是非必需传递的。
+
+```ts
+function sum(a: number, b: number, c?:number):number {
+	return 
+}
+sum(1,2)
+```
+
+ {% note warning modern %}
+可选参数必须要在所有必选参数后面
+{% endnote %}
+
+#### 3.9.3 默认参数
+
+默认参数本身就是可选参数
+
+```ts
+function sum(a: number, b: number, c = 10) {
+	return a+b+c
+}
+sum(1,2)
+```
+
+#### 3.9.4 剩余参数
+
+```ts
+const fn = (a:number, b: number, ...args: number[]) => {
+}
+```
+
+
+#### 3.9.5 泛型
+
+```ts
+// 不确定是什么类型，需要传递一个类型过来
+function log<T>(a: T): T {
+	console.log(a)
+	return a
+}
+
+log<string>("泛型")
+
+
+function example<T, K>(a: T, b: K):[T,K] {
+	return [a, b]
+}
+
+example(1, "1")
+
+
+function myFilter<T>(arr: T[], callback: (item: T, index?:number) => boolean) {
+	const result = [];
+	for(let i = 0; i < arr.length; i++) {
+		if(callback(item, i)) {
+		 result.push(item)
+		}
+	}
+	return result
+}
+
+myFilter([1,4,3,5,6], (item) => {
+	return item % 2 = 0
+})
+```
 
