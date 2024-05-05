@@ -437,22 +437,257 @@ let street = student.address?.street
 
 ## 4. 类型声明
 
-打开`"declaration": true`配置文件，并设置`"declarationDir": "./types"`声明文件的输出目录。然后在`tsc`编译就会生成项目的类型文件。
+在前面的代码中，我们说从 `typescript` 编译到 `Javascript` 的过程中，类型消失了，比如下面的代码：
 
-### 4.1 外部类型声明文件
+```typescript
+const str = "hello";
+type User = {
+    id: number
+    name: string
+    show?: (id: number, name: string) => void
+}
 
-如果项目中使用了外部的某个第三方库，那么就需要这个库的类型声明文件，这是分了三种情况。
+const u:User = {
+    id:1,
+    name:"张三",
+    show(id,name){
+        console.log(id,name)
+    }
+}
 
-1. 第三方库自带了类型声明文件
-2. 社区制作的类型声明文件
-3. 没有类型声明文件
+const users:Array<User> = [
+    {id:1,name:"jack"},
+    {id:2,name:"rose"}
+]
 
-主要介绍一下第二种：
+function addUser(u:User){
+    // todos...
+    return true;
+}
 
-去[传送门](https://github.com/DefinitelyTyped/DefinitelyTyped) 下载对应的类型
-
-举个列子
-```shell
-npm install --save-dev @types/node
+addUser(u);
 ```
 
+**编译成javascript之后：**
+
+```javascript
+"use strict";
+const str = "hello";
+const u = {
+    id: 1,
+    name: "张三",
+    show(id, name) {
+        console.log(id, name);
+    }
+};
+const users = [
+    { id: 1, name: "jack" },
+    { id: 2, name: "rose" }
+];
+function addUser(u) {
+    // todos...
+    return true;
+}
+addUser(u);
+```
+
+但是是真的消失了吗？其实并不是，如果大家留意之前我们在[Playground](https://www.typescriptlang.org/zh/play?#code/MYewdgzgLgBNBOMC8MBEALApgG2yVA3AFBQCeADpjAKoSaIoDeRMrMAlgCYBcMYArgFsARvRZswAQ0GZeCdmADm41hHQgA7gH5uACi7cBI+gBopM7vKUBKZAD4YANxBciAXyKhIsft1r1kGGY2Dh4ARhMVPmlZVEACfUBIOVRIkLVNfU4zGOtgkLYvCBBsTAA6PEUMrJlrKI8PAp86eAhuAEF4eElSAB5-eAcUAG0oxgMI81iAK0lgAGtUNxS2UZ4AJirY+BA6BaIAXSIAM34wYCh2cBhJTk4+3V8+nKiAemeYKBBObZKfqPhMKD8eBgd7wfiYYgea63Jr3awEIA)上编写代码，专门有一项就叫做`DTS`
+
+你会发现，我们写的代码都自动转换成了typescript类型声明。
+
+当然，这在我们的VS Code编辑器中也能生成的。只需要在`tsconfig.json`文件中加上相关配置即可
+
+```diff
+{
+  "compilerOptions": {
+    "target": "es2020",                                  
+    "esModuleInterop": true,                             
+    "forceConsistentCasingInFileNames": true,            
+    "strict": true,                                      
+    "skipLibCheck": true,
+    "outDir": "./dist",
++    "declaration": true,
++    "declarationDir": "./types",                                 
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["./node_modules", "./dist", "./types"]
+}
+```
+
+运行`tsc`，最后生成：**[文件名].d.ts**
+
+```typescript
+declare const str = "hello";
+type User = {
+    id: number;
+    name: string;
+    show?: (id: number, name: string) => void;
+};
+declare const u: User;
+declare const users: Array<User>;
+declare function addUser(u: User): boolean;
+```
+
+也就是说，类型并不是真的全部消失了，而是被放到了专门的类型声明文件里。
+
+`.d.ts`结尾的文件，就是类型声明文件。`d`的含义就是`declaration`
+
+其实`typescript`本身就包含**两种文件类型**
+
+1、`.ts`文件：既包含类型信息，又包含可执行代码，可以被编译成`.js`文件后执行，主要是我们编写文件代码的地方
+
+2、`.d.ts`文件：只包含类型信息的类型声明文件，不会被编译成`.js`代码，仅仅提供类型信息，所以类型文件的用途就是提供类型信息
+
+
+
+### 4.1 类型声明文件的来源
+
+类型声明文件主要有以下三种来源。
+
+- TypeScript 编译器自动生成。
+- TypeScript 内置类型文件。
+- 外部模块的类型声明文件，需要自己安装。
+
+#### 4.1.1自动生成
+
+只要使用编译选项`declaration`，编译器就会在编译时自动生成单独的类型声明文件。
+
+下面是在`tsconfig.json`文件里面，打开这个选项。
+
+```typescript
+{
+  "compilerOptions": {
+    "declaration": true
+  }
+}
+```
+
+[declaration](https://www.typescriptlang.org/tsconfig#declaration)这个属性还与其他属性有强关联：
+- [`declarationDir`](https://www.typescriptlang.org/tsconfig#declarationDir)：指定生成的声明文件`d.ts`的输出目录
+- [`emitDeclarationOnly`](https://www.typescriptlang.org/tsconfig#emitDeclarationOnly)：只输出 `d.ts` 文件，不输出 JavaScript 文件
+- [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap)：为 `d.ts` 文件创建源映射
+
+#### 4.1.2 内置声明文件
+
+安装 TypeScript 语言时，会同时安装一些内置的类型声明文件，主要是内置的全局对象（JavaScript 语言接口和运行环境 API）的类型声明。这也就是为什么`string`，`number`等等基础类型，Javascript的api直接就有类型提示的原因
+
+内置声明文件位于 TypeScript 语言安装目录的`lib`文件夹内
+
+这些内置声明文件的文件名统一为**lib.[description].d.ts**的形式，其中`description`部分描述了文件内容。比如，`lib.dom.d.ts`这个文件就描述了 DOM 结构的类型。
+
+如果想了解对应的全局对象类型接口，可以去查看这些内置声明文件。
+
+`tsconfig.json`中的配置`target`和`lib`其实就和内置声明文件是有关系的。TypeScript 编译器会自动根据编译目标`target`的值，加载对应的内置声明文件，默认不需要特别的配置。我们也可以指定加载哪些内置声明文件，自定义配置`lib`属性即可:
+
+```typescript
+"lib":["es2020","dom","dom.iterable"]
+```
+
+> **为什么我们没有安装typescript之前也有提示？**
+>
+> 这是由于我们的`VS Code`等IDE工具在安装或者更新的时候，已经内置了typescript的lib。一般在`你的VS Code安装路径` -> `resources` -> `app` -> `extensios` -> `node_modules` -> `typescript` 下
+>
+> 如果你的`VS Code`一直没有升级，就有可能导致本地`VS Code`的`typescript`版本跟不上的情况，如果你的项目目录下，也安装的的有typescript，我们是可以进行切换的。
+>
+> 在`VS Code`中使用快捷键`ctrl(command) + shift + P`，输入`TypeScript`
+>
+> 选择`Select Typescript Version...`
+>
+> 你可以选择使用`VS Code`版本还是项目工作区的版本
+
+### 4.2 外部类型声明文件
+
+如果项目中使用了外部的某个第三方库，那么就需要这个库的类型声明文件。这时又分成三种情况了。
+
+**1、第三方库自带了类型声明文件**
+
+**2、社区制作的类型声明文件**
+
+**3、没有类型声明文件**
+
+没有类型声明这个很容易理解，我们现在不纠结这种情况，而且大多数情况下，我们也不应该去纠结他，关键是1,2两点是什么意思？其实我们下载两个常用的第三方库就能很明显的看出问题。
+
+```shell
+npm i axios lodash
+```
+
+
+> 注意：引入模块之前，涉及到模块的查找方式，因此在tsconfig.json中需要配置**[module](https://www.typescriptlang.org/tsconfig#module)**
+>
+> 对于现代 **Node.js 项目**，我们可以配置`NodeNext`，注意这个配置会影响下面的配置：
+>
+> ```typescript
+> "moduleResolution": "NodeNext",
+> "esModuleInterop": true
+> ```
+>
+> 当然，**具体模块化的配置，不同的环境要求是不一样的，有一定的区别**，比如是nodejs环境，还是webpack的打包环境，或者说是在写一个第三方库的环境，对于模块化的要求是不一样的。而且还涉及到模块化解析方式等问题。这里就先不详细深入讲解了
+>
+> 在**nodejs**环境下，我们先简单配置为`"module":"NodeNext"`
+>
+> 在**webapck/vite**等打包环境下，设置为：
+>
+> `"module": "ESNext"`
+>
+> `"moduleResolution": "bundler"`
+
+引入相关模块：
+
+其实打开这两个库的源代码就能发现问题，axios是有`.d.ts`文件的，而lodash没有，也就是说根本没有类型声明，那当然就和提示的错误一样，无法找到模块的声明文件。
+
+第三方库如果没有提供类型声明文件，社区往往会提供。TypeScript 社区主要使用 [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)，各种类型声明文件都会提交到那里，已经包含了几千个第三方库。上面代码提示的错误，其实就是让我们到`@types`名称空间去下载lodash对应的类型声明，如果存在的话。当然，你也可以到[npm](https://www.npmjs.com/~types)上进行搜索。几乎你知道的所有较大的库，都会在上面找到，所以一般来说也要下载或者搜索都比较简单，`@types`开头，`/`后面加上**第三方库原来的名字**即可，比如：
+
+`@types/lodash`，`@types/jquery`，`@types/node`，`@types/react`，`@types/react-dom`等等
+
+```typescript
+npm i --save-dev @types/lodash
+```
+
+```typescript
+import lodash from 'lodash'
+
+const result = lodash.add(1, 2);
+console.log(result)
+```
+
+
+
+默认情况下，所有可见的“`@types`”包都会包含在你的编译中。任何包含文件夹中`node_modules/@types`的包都被视为可见。“任何包含文件夹”意味着不仅是项目的直接`node_modules/@types`目录会被搜索，**上层目录中的相应文件夹也会被递归搜索**。
+
+可以通过[typeRoots](https://www.typescriptlang.org/tsconfig#typeRoots)选项设置查找的文件路径，如果指定了`typeRoots`，则只会包含`typeRoots`下的包。例如：
+
+```typescript
+{
+  "compilerOptions": {
+    "typeRoots": ["./typings", "./vendor/types"]
+  }
+}
+```
+
+这个配置文件将会包含`./typings`和`./vendor/types`下的所有包，但不会包含`./node_modules/@types`下的任何包。所有路径都是相对于`tsconfig.json`文件的。
+
+也就是说，如果你要手动指定`typeRoots`，那就需要自己手动指定所有需要查找的目录，如果你的项目中有深层次的目录结构，并且你希望包含其中的类型声明，你需要确保这些目录都被明确地添加到`typeRoots`中。
+
+其实，nodejs本身也没有TypeScript的类型声明，因此你会发现在`.ts`文件中直接引入nodejs相关的模块同样会报错
+
+```typescript
+import path from "path"; // error 找不到模块"path"或其相应的类型声明
+```
+
+同样，我们直接在[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)下载即可
+
+```typescript
+npm i @types/node -D
+```
+
+
+
+## 5. 类型声明文件的用途
+
+我们自己当然也能编写类型声明文件，但是声明文件`.d.ts`大多数时候是第三方库一起使用的，我们写代码在nodejs环境下，单独去声明`.d.ts`文件没有太大的意义，首先大家要知道这个问题。所以，要使用`.d.ts`声明文件的场景一般是：
+
+1、自己写了一个主要是Javascript代码的第三方库，需要给这写Javascript代码加上类型声明，以便用户使用的时候可以得到类型声明，方便调用API。
+
+2、自己下载了别人写的第三方库，但是没有typescript类型声明，在社区 [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)中也没有找到对应的类型声明，但是我们一定要用这个库，可以手动为这个库添加一些简单的类型声明，以免我们自己项目在使用这个第三方库没有类型声明报出错误提示。
+
+3、在做应用项目的时候，需要补充一些全局的类型声明的时候，我们可能需要自己动手写`.d.ts`文件，其实这种情况大多数还是和第2点有关系
