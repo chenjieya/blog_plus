@@ -274,3 +274,185 @@ myFilter([1,4,3,5,6], (item) => {
 })
 ```
 
+### 3.10 对象字面量类型
+
+对象字面量类型就是字面量类型
+
+```ts
+const v4 = {
+	name: 'alvis',
+	age: 1,
+	id: 130
+}
+
+=> 类型推导成
+
+const v4: {
+	name: string,
+	age: number,
+	id: number
+} = {
+	name: 'alvis',
+	age: 1,
+	id: 130
+}
+```
+
+### 3.11 自定义类型
+
+#### 3.11.1 类型别名
+
+创建一个类型的新的名字，类型别名可以是任何有效的类型
+
+```ts
+// type 名称 = 类型
+type Pointer = {
+	x: number,
+	y: number
+} 
+
+type ID = number | string
+
+type Age = number
+
+type User = {
+	id: ID,
+	name: string,
+	age: Age
+}
+
+type InfoFn = (id: number, name?: string) => string
+```
+#### 3.11.2 接口
+
+接口其实是面向对象的概念，所以一般用于定义对象类型
+
+```ts
+interface Point {
+	x: number,
+	y: number
+}
+
+interface Person {
+	id: ID,
+	name: string,
+	age: Age
+}
+
+interface Book {
+	id: number,
+	name: string,
+	price: number,
+	// 函数类型表示方式
+	show(id: number): void,
+	filter: (id: number) = void,
+	info: InfoFn
+}
+```
+
+### 3.12 交叉类型
+
+交叉类型就是将多个类型合并成一个类型。**类型A & 类型B、 类型A | 类型B**
+
+```ts
+type A = {
+	id: number,
+	name: string
+}
+
+type B = {
+	age: number
+}
+
+type C = A & B
+
+// A和B的任意一个属性都不能少，必须要全部符合A、B两个类型
+const objs: C = {
+	id: 1,
+	name: 'alvis',
+	age: 18
+}
+
+type D = A | B
+
+// 同时满足类型A和类型B也可以
+const obj: D = {
+	// 只满足类型A的类型也可以
+	id: 1,
+	name: 'alvis',
+	// 只满足类型B的类型也可以
+	age: 18
+}
+```
+
+### 3.13 类型断言
+
+简单来说，TS会根据上下文进行推测，但是有时候我们可以认为干涉，确定某一个类型。类型断言就是告诉TS编译器，**我知道我在做什么，这里没有类型安全问题，我自己来掌握**，允许我们使用更宽松的方式处理类型问题。
+
+> 语法： `值 as 类型 或者 <类型>值`
+
+```ts
+let someValue: any = "this is a string"
+let strLeng1 = (someValue as string).length
+let strLeng2 = (<string>someValue).length
+```
+
+### 3.14非空断言
+
+当你确定某个值不是null或者undefined的时候，可以直接使用非空断言。
+
+> 语法：值!
+
+```ts
+let maybeString: string | undefined = "hello"
+// 如果不加入非空断言，此时的类型可能是 string | undefined，加上非空断言就确定了此时不是undefined
+let defineString = maybeString!
+```
+
+
+### 3.15 可选链操作符（js语法）
+
+```ts
+interface Address {
+	city?: string
+	street?: string
+}
+
+interface Student {
+	name: string
+	address?: Address
+}
+
+const student: Student = {
+	name: 'alvis',
+	address: {
+		city: "河北"
+	}
+}
+
+// address.street可能不存在,如果不存在就直接返回undefined，不再往后走了
+let street = student.address?.street
+```
+
+
+## 4. 类型声明
+
+打开`"declaration": true`配置文件，并设置`"declarationDir": "./types"`声明文件的输出目录。然后在`tsc`编译就会生成项目的类型文件。
+
+### 4.1 外部类型声明文件
+
+如果项目中使用了外部的某个第三方库，那么就需要这个库的类型声明文件，这是分了三种情况。
+
+1. 第三方库自带了类型声明文件
+2. 社区制作的类型声明文件
+3. 没有类型声明文件
+
+主要介绍一下第二种：
+
+去[传送门](https://github.com/DefinitelyTyped/DefinitelyTyped) 下载对应的类型
+
+举个列子
+```shell
+npm install --save-dev @types/node
+```
+
