@@ -1,5 +1,5 @@
 ---
-title: TypeScript快速入门
+title: 🥬 TypeScript快速入门
 tags:
   - TypeScript
 categories:
