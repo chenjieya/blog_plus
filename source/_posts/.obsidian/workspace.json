@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "1a2bef24d24524b2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-05-03-TypeScript快速入门.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -91,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2024-05-06-深入了解TypeScript类型.md",
+                "file": "2024-05-03-TypeScript快速入门.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2024-05-06-深入了解TypeScript类型.md",
+                "file": "2024-05-03-TypeScript快速入门.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2024-05-06-深入了解TypeScript类型.md"
+                "file": "2024-05-03-TypeScript快速入门.md"
               }
             }
           },
@@ -175,16 +188,16 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "1d862245c5d10e37",
+  "active": "1a2bef24d24524b2",
   "lastOpenFiles": [
-    "2024-05-03-TypeScript快速入门.md",
-    "2024-05-06-深入了解TypeScript类型.md",
     "2024-05-02-建立一个响应式系统.md",
+    "2024-05-06-深入了解TypeScript类型.md",
+    "2024-05-03-TypeScript快速入门.md",
     "2024-05-02-自动收集依赖以及触发effect.md",
+    "2024-05-12-函数与泛型.md",
     "图标存储.md",
     "2024-05-02-🥬建立一个响应式系统.md",
     "2024-05-02-Vue3 Reactive 工作原理.md",
-    "2022-08-09-Markdown语法与外挂标签写法汇总.md",
     "share/用U盘安装Linux(Debian11).html",
     "工作日志/2024-3.md",
     "Untitled.canvas",
@@ -207,7 +220,6 @@
     "docker_kuangshen/容器数据卷.md",
     "docker_kuangshen/docker准备工作.md",
     "codewhy/05_typescript/TypeScript.md",
-    "Grid布局.md",
     "nginx_sgg/核心技术/Nginx 基础使用.pdf",
     "image/img015.b413af9d.png",
     "image/img014.cc0e87c3.png",

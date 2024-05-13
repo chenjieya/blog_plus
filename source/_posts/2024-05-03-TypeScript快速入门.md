@@ -5,17 +5,23 @@ tags:
 categories:
   - 前端基础
 mathjax: true
-sticky: 1
 swiper_index: 1
 comment: true
 abbrlink: a9b8502c
 date: 2024-05-03 14:44:10
 description: TypeScript 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。
+sticky: 5
 ---
 
 {% note purple no-icon %}
 **前言 📝**
 本文主要目的是帮助小白快速的上手`TypeScript`项目，并不会深入的去讲解过多的语法。能够满足平时的基本开发需求。
+
+**更深入的AnyScript教程，和我一起学习吧  🚥🚥🚥**
+
+1. {% post_link TypeScript快速入门  🥬 TypeScript快速入门%} ⇦ 当前位置 🪂
+2. {% post_link 深入了解TypeScript类型  🥬 深入了解TypeScript类型%}
+3. {% post_link 函数与泛型  🥬 函数与泛型%} 
 {% endnote %}
 
 ## 1. 导言
