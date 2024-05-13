@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2024-05-03-TypeScript快速入门.md",
+                "file": "2024-05-12-函数与泛型.md",
                 "mode": "source",
                 "source": false
               }
@@ -104,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2024-05-03-TypeScript快速入门.md",
+                "file": "2024-05-12-函数与泛型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2024-05-03-TypeScript快速入门.md",
+                "file": "2024-05-12-函数与泛型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2024-05-03-TypeScript快速入门.md"
+                "file": "2024-05-12-函数与泛型.md"
               }
             }
           },
@@ -190,9 +190,9 @@
   },
   "active": "1a2bef24d24524b2",
   "lastOpenFiles": [
+    "2024-05-03-TypeScript快速入门.md",
     "2024-05-02-建立一个响应式系统.md",
     "2024-05-06-深入了解TypeScript类型.md",
-    "2024-05-03-TypeScript快速入门.md",
     "2024-05-02-自动收集依赖以及触发effect.md",
     "2024-05-12-函数与泛型.md",
     "图标存储.md",
