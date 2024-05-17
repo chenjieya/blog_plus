@@ -1,5 +1,5 @@
 ---
-title: 🥬 深入了解TypeScript类型
+title: 🍚 深入了解TypeScript类型
 tags:
   - TypeScript
 categories:
@@ -12,9 +12,9 @@ comment: true
 ---
 {% note purple no-icon %}
 **前言 📝**
-1. {% post_link TypeScript快速入门  🥬 TypeScript快速入门%}
-2. {% post_link 深入了解TypeScript类型  🥬 深入了解TypeScript类型%}⇦ 当前位置 🪂
-3. {% post_link 函数与泛型  🥬 函数与泛型%} 
+1. {% post_link TypeScript快速入门  🥪 TypeScript快速入门%}
+2. {% post_link 深入了解TypeScript类型  🍚 深入了解TypeScript类型%}⇦ 当前位置 🪂
+3. {% post_link 函数与泛型  🍀 函数与泛型%} 
 {% endnote %}
 
 ## 1. any与unknown
