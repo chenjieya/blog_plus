@@ -1,5 +1,5 @@
 ---
-title: 🥬 深入了解TypeScript类型
+title: 🍚 深入了解TypeScript类型
 tags:
   - TypeScript
 categories:
