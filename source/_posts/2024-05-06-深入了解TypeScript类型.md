@@ -15,6 +15,7 @@ comment: true
 1. {% post_link TypeScript快速入门  🥬 TypeScript快速入门%}
 2. {% post_link 深入了解TypeScript类型  🥬 深入了解TypeScript类型%}⇦ 当前位置 🪂
 3. {% post_link 函数与泛型  🥬 函数与泛型%} 
+4. {% post_link 类型编程  🥬 类型编程%} 
 {% endnote %}
 
 ## 1. any与unknown
