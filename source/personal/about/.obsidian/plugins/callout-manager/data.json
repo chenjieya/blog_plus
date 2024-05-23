@@ -1,0 +1,23 @@
+{
+  "callouts": {
+    "custom": [
+      "firstcallout"
+    ],
+    "settings": {
+      "firstcallout": [
+        {
+          "changes": {
+            "icon": "lucide-cookie",
+            "color": "245, 224, 220"
+          }
+        }
+      ]
+    }
+  },
+  "calloutDetection": {
+    "obsidianFallbackForced": false,
+    "obsidian": true,
+    "theme": true,
+    "snippet": true
+  }
+}
