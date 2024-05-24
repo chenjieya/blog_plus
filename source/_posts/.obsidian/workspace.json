@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2024-05-15-类型编程.md",
+                "file": "2024-05-17-Ref响应式.md",
                 "mode": "source",
                 "source": false
               }
@@ -91,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2024-05-15-类型编程.md",
+                "file": "2024-05-17-Ref响应式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2024-05-15-类型编程.md",
+                "file": "2024-05-17-Ref响应式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2024-05-15-类型编程.md"
+                "file": "2024-05-17-Ref响应式.md"
               }
             }
           },
@@ -179,6 +179,7 @@
   "lastOpenFiles": [
     "2024-05-02-自动收集依赖以及触发effect.md",
     "2024-05-02-建立一个响应式系统.md",
+    "2024-05-15-类型编程.md",
     "2024-05-17-Ref响应式.md",
     "2024-05-12-函数与泛型.md",
     "2024-05-06-深入了解TypeScript类型.md",
@@ -207,7 +208,6 @@
     "share/debian安装docker.html",
     "docker_kuangshen/容器数据卷.md",
     "docker_kuangshen/docker准备工作.md",
-    "codewhy/05_typescript/TypeScript.md",
     "nginx_sgg/核心技术/Nginx 基础使用.pdf",
     "image/img015.b413af9d.png",
     "image/img014.cc0e87c3.png",
