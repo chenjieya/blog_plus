@@ -9,7 +9,7 @@ description: "笑容面对生活 梦想驱动前行 🍭🍭🍭"
 keywords: "Java,MySQL,算法,代码,博客,Butterfly,Hexo,Alvis"
 author: Alvis
 language: zh-CN
-timezone: 
+timezone:
 
 # abbrlink config
 abbrlink:
@@ -265,8 +265,8 @@ magnet:
     - name: 算法
       display_name: 小Fの算法学习笔记
       icon: 🍡
-    - name: 计算机基础
-      display_name: 小Fの计算机基础笔记
+    - name: 解决方案
+      display_name: 小陈の解决方案
       icon: 🍼
     - name: 前端基础
       display_name: 小陈の前端基础笔记
