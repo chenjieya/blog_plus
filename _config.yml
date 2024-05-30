@@ -5,8 +5,8 @@
 # Site
 title: 笑容旅程
 subtitle:
-description: "笑容面对生活 梦想驱动前行 🍭🍭🍭"
-keywords: "Java,MySQL,算法,代码,博客,Butterfly,Hexo,Alvis"
+description: '笑容面对生活 梦想驱动前行 🍭🍭🍭'
+keywords: 'Java,MySQL,算法,代码,博客,Butterfly,Hexo,Alvis'
 author: Alvis
 language: zh-CN
 timezone:
@@ -43,7 +43,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ""
+  exclude: ''
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -53,17 +53,17 @@ highlight:
   enable: true
   line_number: true
   auto_detect: true
-  tab_replace: ""
+  tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
   enable: false
   preprocess: true
   line_number: true
-  tab_replace: ""
+  tab_replace: ''
 
 math:
-  engine: "mathjax"
+  engine: 'mathjax'
   mathjax:
     src: custom_mathjax_source
     config:
@@ -79,8 +79,8 @@ aplayer:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ""
-  per_page: 12
+  path: ''
+  per_page: 9
   order_by: -date
 
 # Category & Tag
@@ -99,7 +99,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: "mtime"
+updated_option: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -137,11 +137,11 @@ deploy:
 
 # hexo-algoliasearch(可以匹配内容)
 algolia:
-  appId: ""
-  apiKey: ""
-  adminApiKey: ""
+  appId: ''
+  apiKey: ''
+  adminApiKey: ''
   chunkSize:
-  indexName: ""
+  indexName: ''
   fields:
     - content:strip:truncate,0,30000
     - excerpt:strip
@@ -203,7 +203,7 @@ baidu_url_submit:
 nofollow:
   enable: false
   field: site
-  exclude: ""
+  exclude: ''
 
 # github提交日志
 # hexo-filter-gitcalendar
@@ -234,7 +234,7 @@ gitcalendar:
   #   index: 0
   # simplemode: true
   user: #git用户名
-  apiurl: ""
+  apiurl: ''
   minheight:
     pc: 320px #桌面端最小高度
     mibile: 0px #移动端最小高度
@@ -283,11 +283,11 @@ magnet:
   color_setting:
     text_color: black # 文字默认颜色
     text_hover_color: white # 文字鼠标悬浮颜色
-    background_color: "#e9e9e9" # 文字背景默认颜色
+    background_color: '#e9e9e9' # 文字背景默认颜色
     background_hover_color: var(--text-bg-hover) # 文字背景悬浮颜色
   layout:
     type: id
     name: recent-posts
     index: 0
   temple_html: '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet">${temple_html_item}</div></div>'
-  plus_style: ""
+  plus_style: ''
