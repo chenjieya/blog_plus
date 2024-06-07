@@ -262,9 +262,6 @@ magnet:
   type: categories
   devide: 3
   display:
-    - name: 算法
-      display_name: 小Fの算法学习笔记
-      icon: 🍡
     - name: 解决方案
       display_name: 小陈の解决方案
       icon: 🍼
@@ -274,6 +271,9 @@ magnet:
     - name: Java基础
       display_name: 小FのJava基础笔记
       icon: 🍟
+    - name: Docker
+      display_name: 小陈のDocker笔记
+      icon: 🍡
     - name: 数据库
       display_name: 小Fの数据库笔记
       icon: 🍨
