@@ -8,9 +8,11 @@ tags:
 categories:
   - 解决方案
 mathjax: true
-date: 2024-06-07 15:34:02
-description: 在vue3项目中使用unplugin-vue-setup-extend-plus工具库的时候，导入相关的包的时候，发现ts并没有一起导入。在本篇文章中讲解一些如何解决的相关问题，并提一下如何给开源代码做贡献
+description: >-
+  在vue3项目中使用unplugin-vue-setup-extend-plus工具库的时候，导入相关的包的时候，发现ts并没有一起导入。在本篇文章中讲解一些如何解决的相关问题，并提一下如何给开源代码做贡献
 comment: true
+abbrlink: 38d5ea6c
+date: 2024-06-07 15:34:02
 ---
 
 {% note purple no-icon %}
