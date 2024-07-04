@@ -716,6 +716,9 @@ aside:
   card_announcement:
     enable: true
     content: 2024年我出生啦
+  card_guanggao:
+    enable: true
+    content: 2959508594
   card_recent_post:
     enable: false
     limit: 3 # if set 0 will show all
