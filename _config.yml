@@ -268,8 +268,8 @@ magnet:
     - name: 前端基础
       display_name: 小陈の前端基础笔记
       icon: 🍉
-    - name: Java基础
-      display_name: 小FのJava基础笔记
+    - name: 后端基础
+      display_name: 小陈の后端基础笔记
       icon: 🍟
     - name: Docker
       display_name: 小陈のDocker笔记

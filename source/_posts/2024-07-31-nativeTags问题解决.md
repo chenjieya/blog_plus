@@ -1,7 +1,5 @@
 ---
-layout: 🍊 关于vscode开发uni-app中依赖@uni-helper/uni-app-types的配置
-title: nativeTags问题解决
-date: 2024-07-31 14:30:57
+title: "\U0001F34A 关于vscode开发uni-app中依赖@uni-helper/uni-app-types的配置"
 tags:
   - tsconfig
   - uniapp
@@ -10,6 +8,8 @@ categories:
   - 解决方案
 comment: true
 description: '类型“{ class: string; }”的参数不能赋给类型"ComponentPublicInstanceConstructor"'
+abbrlink: a6fd95c4
+date: 2024-07-31 14:30:57
 ---
 {% note purple no-icon %}
 

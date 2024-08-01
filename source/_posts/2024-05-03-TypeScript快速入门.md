@@ -10,7 +10,6 @@ comment: true
 abbrlink: a9b8502c
 date: 2024-05-03 14:44:10
 description: TypeScript 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。
-sticky: 5
 ---
 
 {% note purple no-icon %}
@@ -24,6 +23,8 @@ sticky: 5
 3. {% post_link 函数与泛型  🍀 函数与泛型%} 
 4. {% post_link 类型编程  🛑 类型编程%} 
 5. {% post_link 类和接口  🔫 类和接口%}
+6. {% post_link 装饰器  🚶 装饰器%} 
+7. {% post_link 工程化  🕊️ 工程化%}
 {% endnote %}
 
 ## 1. 导言
