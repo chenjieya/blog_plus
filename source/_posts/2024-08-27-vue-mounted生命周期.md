@@ -1,5 +1,5 @@
 ---
-title: "@vue:mounted生命周期"
+title: '@vue:mounted生命周期'
 tags:
   - vue
   - vue3
@@ -8,8 +8,9 @@ categories:
   - 解决方案
   - Vue
 mathjax: true
-date: 2024-08-27 14:41:07
 description: Vue3中使用指令生命周期
+abbrlink: 868f0fed
+date: 2024-08-27 14:41:07
 ---
 ## 1. 执行顺序
 
