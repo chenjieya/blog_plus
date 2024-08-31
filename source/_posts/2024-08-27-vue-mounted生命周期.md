@@ -1,5 +1,5 @@
 ---
-title: '@vue:mounted生命周期'
+title: ⛅ @vue:mounted生命周期
 tags:
   - vue
   - vue3
