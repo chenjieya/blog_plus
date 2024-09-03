@@ -5,7 +5,6 @@ tags:
   - vue3
   - 生命周期
 categories:
-  - 解决方案
   - Vue
 mathjax: true
 description: Vue3中使用指令生命周期
