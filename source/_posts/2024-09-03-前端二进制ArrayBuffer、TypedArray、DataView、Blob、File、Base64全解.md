@@ -1,5 +1,5 @@
 ---
-title: 🔓  前端二进制ArrayBuffer、TypedArray、DataView、Blob、File、Base64全解
+title: "\U0001F513  前端二进制ArrayBuffer、TypedArray、DataView、Blob、File、Base64全解"
 tags:
   - 二进制
   - ArrayBuffer
@@ -12,8 +12,9 @@ tags:
 categories:
   - 解决方案
 mathjax: true
+description: '前端二进制相关API: ArrayBuffer、TypedArray、DataView、Blob、File、Base64、FileReader'
+abbrlink: '67273e92'
 date: 2024-09-03 13:25:09
-description: "前端二进制相关API: ArrayBuffer、TypedArray、DataView、Blob、File、Base64、FileReader"
 ---
 {% note purple no-icon %}
 
@@ -41,19 +42,20 @@ const buffer = new ArrayBuffer(16);
 
 TypedArray 是一个通用的术语，没有这个构造函数，是下面这些构造函数的统称：
 
-|类型|值范围|字节大小|描述|Web IDL 类型|等价的 C 类型|
-|---|---|---|---|---|---|
-|[`Int8Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Int8Array)|-128 到 127|1|8 位有符号整型（补码）|`byte`|`int8_t`|
-|[`Uint8Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)|0 到 255|1|8 位无符号整型|`octet`|`uint8_t`|
-|[`Uint8ClampedArray`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray)|0 到 255|1|8 位无符号整型（一定在 0 到 255 之间）|`octet`|`uint8_t`|
-|[`Int16Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Int16Array)|-32768 到 32767|2|16 位有符号整型（补码）|`short`|`int16_t`|
-|[`Uint16Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array)|0 到 65535|2|16 位无符号整型|`unsigned short`|`uint16_t`|
-|[`Int32Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)|-2147483648 到 2147483647|4|32 位有符号整型（补码）|`long`|`int32_t`|
-|[`Uint32Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array)|0 到 4294967295|4|32 位无符号整型|`unsigned long`|`uint32_t`|
-|[`Float32Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Float32Array)|`-3.4E38` 到 `3.4E38` 并且 `1.2E-38` 是最小的正数|4|32 位 IEEE 浮点数（7 位有效数字，例如 `1.234567`）|`unrestricted float`|`float`|
-|[`Float64Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Float64Array)|`-1.8E308` 到 `1.8E308` 并且 `5E-324` 是最小的正数|8|64 位 IEEE 浮点数（16 位有效数字，例如 `1.23456789012345`）|`unrestricted double`|`double`|
-|[`BigInt64Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt64Array)|-263 到 263 - 1|8|64 位有符号整型（补码）|`bigint`|`int64_t (signed long long)`|
-|[`BigUint64Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigUint64Array "此页面目前仅提供英文版本")|0 到 264 - 1|8|64 位无符号整型|`bigint`|`uint64_t (unsigned long long)`|
+| 类型                                                                                                                                 | 值范围                                       | 字节大小 | 描述                                            | Web IDL 类型            | 等价的 C 类型                        |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ---- | --------------------------------------------- | --------------------- | ------------------------------- |
+| [`Int8Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Int8Array)                          | -128 到 127                                | 1    | 8 位有符号整型（补码）                                  | `byte`                | `int8_t`                        |
+| [`Uint8Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)                        | 0 到 255                                   | 1    | 8 位无符号整型                                      | `octet`               | `uint8_t`                       |
+| [`Uint8ClampedArray`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray)          | 0 到 255                                   | 1    | 8 位无符号整型（一定在 0 到 255 之间）                      | `octet`               | `uint8_t`                       |
+| [`Int16Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Int16Array)                        | -32768 到 32767                            | 2    | 16 位有符号整型（补码）                                 | `short`               | `int16_t`                       |
+| [`Uint16Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array)                      | 0 到 65535                                 | 2    | 16 位无符号整型                                     | `unsigned short`      | `uint16_t`                      |
+| [`Int32Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)                        | -2147483648 到 2147483647                  | 4    | 32 位有符号整型（补码）                                 | `long`                | `int32_t`                       |
+| [`Uint32Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array)                      | 0 到 4294967295                            | 4    | 32 位无符号整型                                     | `unsigned long`       | `uint32_t`                      |
+| [`Float32Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Float32Array)                    | `-3.4E38` 到 `3.4E38` 并且 `1.2E-38` 是最小的正数  | 4    | 32 位 IEEE 浮点数（7 位有效数字，例如 `1.234567`）          | `unrestricted float`  | `float`                         |
+| [`Float64Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Float64Array)                    | `-1.8E308` 到 `1.8E308` 并且 `5E-324` 是最小的正数 | 8    | 64 位 IEEE 浮点数（16 位有效数字，例如 `1.23456789012345`） | `unrestricted double` | `double`                        |
+| [`BigInt64Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt64Array)                  | -263 到 263 - 1                            | 8    | 64 位有符号整型（补码）                                 | `bigint`              | `int64_t (signed long long)`    |
+| [`BigUint64Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigUint64Array "此页面目前仅提供英文版本") | 0 到 264 - 1                               | 8    | 64 位无符号整型                                     | `bigint`              | `uint64_t (unsigned long long)` |
+
 所有的类型化数组都是基于 `ArrayBuffer` 进行操作的，`TypedArray`​ 具有常规的 `Array`​ 方法，比如 `map`​，`slice`​，`find`​ 和 `reduce`​ 等。
 
 

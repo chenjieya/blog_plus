@@ -8,8 +8,9 @@ tags:
 categories:
   - 解决方案
 mathjax: true
+description: 在部署项目时候踩到了createWebHistory的坑？究竟是什么原因呢？
+abbrlink: 7c83404d
 date: 2024-08-31 13:54:19
-description: 在部署项目时候猜到了createWebHistory的坑？究竟是什么原因呢？
 ---
 {% note purple no-icon %}
 
