@@ -1,5 +1,5 @@
 ---
-title: 🎉 MacBook安装jdk8、jdk17教程
+title: "\U0001F389 MacBook安装jdk8、jdk17教程"
 tags:
   - jdk
   - Java
@@ -7,8 +7,9 @@ tags:
 categories:
   - 后端基础
 mathjax: true
-date: 2024-09-10 13:43:28
 description: MacBook苹果电脑安装配置多个jdk，并快速切换jdk版本
+abbrlink: 53d10e69
+date: 2024-09-10 13:43:28
 ---
 {% note purple no-icon %}
 
