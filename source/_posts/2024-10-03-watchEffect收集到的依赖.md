@@ -173,6 +173,21 @@ setTimeout(() => {
 
 ```js
 import { ref, watchEffect } from "vue";
+const state = ref({ a: 1 });
+const k = state.value;
+const n = k.a;
+watchEffect(() => {
+  console.log("运行");
+  state.value.a = 2; // 注意这里的依赖仅仅只有 value 属性
+});
+setTimeout(() => {
+  //   state.value.a = 100; // 不会重新运行的
+  state.value = {}; // 要重新运行
+}, 500);
+```
+
+```js
+import { ref, watchEffect } from "vue";
 let state = ref({ a: 1 });
 const k = state.value;
 const n = k.a;
