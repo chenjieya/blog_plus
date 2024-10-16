@@ -1,14 +1,15 @@
 ---
-title: 📟  watchEffect收集到的依赖
+title: "\U0001F4DF  watchEffect收集到的依赖"
 tags:
   - watchEffect
   - vue3
 categories:
   - 解决方案
 mathjax: true
+description: >-
+  函数在运行期间，出现了读取响应式数据被拦截的情况，我们就称之为两者之间产生了依赖，这个依赖（也就是一个对应关系）是会被收集的，方便响应式数据发生变化时重新执行对应的函数。
+abbrlink: '64172476'
 date: 2024-10-03 13:43:41
-description: 函数在运行期间，出现了读取响应式数据被拦截的情况，我们就称之为两者之间产生了依赖，这个依赖（也就是一个对应关系）是会被收集的，方便响应式数据发生变化时重新执行对应的函数。
-abbrlink:
 ---
 
 {% note purple no-icon %}
