@@ -26,7 +26,7 @@ date: 2024-10-16 16:19:11
 
 `docker inspect 容器名/容器id`
 
-docker命令不熟悉的可以去小编的其他文章看一下{% post_link docker准备工作  💡 docker准备工作%}
+docker命令不熟悉的可以去小编的其他文章看一下{% post_link docker常用命令 🚀 docker常用命令 %}
 
 ![image.png](https://picgo-1300696809.cos.ap-beijing.myqcloud.com/202410161638135.png)
 
