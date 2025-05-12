@@ -49,7 +49,7 @@ Cloudflare 提供两种验证码：转门和挑战。
 
 通过`page.addInitScript`方法，在页面加载前注入一段脚本。此脚本使用`Proxy`对象重写`window.turnstile`的`render`方法。当`render`方法被调用时，它会提取相关参数，如`sitekey`、`cData`等，存储在`window.params`中，并保存回调函数`window.turnstileCallback`。同时，原`render`方法依然会被执行。
 
-```node
+```js
   await page.addInitScript(() => {
 	console.log('xxxxxxxxxxxxxxxxxxxxx脚本注入')
 	// 重写 window.turnstile 方法
@@ -81,13 +81,13 @@ Cloudflare 提供两种验证码：转门和挑战。
 
 
 使用`page.goto`方法导航到指定的`openUrl`，并等待页面网络活动结束（`waitUntil: 'networkidle'`）
-```node
+```js
 await page.goto(openUrl, { waitUntil: 'networkidle' });
 ```
 
 
 通过`page.evaluate`在页面上下文中执行一段 JavaScript 代码，等待`window.params`被设置。如果在 5 秒内`window.params`存在，则返回其值；否则返回`null`。
-```node
+```js
 const params = await page.evaluate(() =>
   new Promise((resolve) => {
     console.log('xxxxxxparams======');
@@ -102,7 +102,7 @@ const params = await page.evaluate(() =>
 
 
 如果成功获取到`params`，则构建一个包含`clientKey`和`task`信息的`data`对象，通过`fetch`向 2Captcha 的`createTask`接口发送 POST 请求，创建一个验证码识别任务，并等待响应解析为 JSON 格式数据。
-```node
+```js
 if (params) {
   const data = {
     clientKey: key,
@@ -126,7 +126,7 @@ if (params) {
 
 
 若创建任务成功得到`taskId`，则定义一个递归函数`getTaskResult`来轮询 2Captcha 的`getTaskResult`接口，获取任务处理结果。如果任务状态为`processing`，则等待 5 秒后再次请求，直到获取到最终结果。
-```node
+```js
 if (createTaskResult.taskId) {
   const getTaskResult = async (taskId) => {
     const taskResult = await fetch('https://api.2captcha.com/getTaskResult', {
@@ -150,7 +150,7 @@ if (createTaskResult.taskId) {
 ```
 
 当获取到任务结果且包含`token`时，通过`page.evaluate`在页面上下文中执行`window.turnstileCallback`回调函数，并传入`token`，完成验证码的破解流程。
-```node
+```js
 if (taskRes?.solution?.token) {
   await page.evaluate((token) => {
     console.log(window, token);
